@@ -1,0 +1,79 @@
+{
+  "queries": [
+    {
+      "query": {
+        "metric": "bytes",
+        "matrixBy": [],
+        "cidr": 32,
+        "cidr6": 128,
+        "pps_threshold": 500,
+        "topx": 8,
+        "depth": 100,
+        "fastData": "Auto",
+        "outsort": "max_bits_per_sec",
+        "lookback_seconds": 604800,
+        "time_format": "UTC",
+        "starting_time": null,
+        "ending_time": null,
+        "update_frequency": 0,
+        "device_name": "[insert list of device names]"
+        "all_selected": true,
+        "filters_obj": {
+          "connector": "All",
+          "filterGroups": [
+            {
+              "connector": "All",
+              "filters": [
+                {
+                  "filterField": "i_output_snmp_alias",
+                  "operator": "ILIKE",
+                  "filterValue": "peering:"
+                }
+              ],
+              "not": false
+            }
+          ]
+        },
+        "saved_filters": [
+          {
+            "filter_id": 1052,
+            "is_not": true
+          }
+        ],
+        "descriptor": "Total",
+        "cutFn": {},
+        "aggregates": [
+          {
+            "name": "avg_bits_per_sec",
+            "column": "f_sum_both_bytes",
+            "fn": "average",
+            "sample_rate": 1
+          },
+          {
+            "name": "p95th_bits_per_sec",
+            "column": "f_sum_both_bytes",
+            "fn": "percentile",
+            "rank": 95,
+            "sample_rate": 1
+          },
+          {
+            "name": "max_bits_per_sec",
+            "column": "f_sum_both_bytes",
+            "fn": "max",
+            "raw": true,
+            "sample_rate": 1
+          }
+        ],
+        "query_title": "Top Device, Dest AS Number, Dest Country, Dest Next Hop AS Number by Max Bits/s",
+        "dimension": [
+          "i_device_id",
+          "AS_dst",
+          "Geography_dst",
+          "dst_nexthop_asn"
+        ]
+      },
+      "bucket": "Left +Y Axis",
+      "bucketIndex": 0
+    }
+  ]
+}

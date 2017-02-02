@@ -1,0 +1,110 @@
+{
+  "queries": [
+    {
+      "query": {
+        "viz_type": "stackedArea",
+        "show_overlay": false,
+        "overlay_day": -7,
+        "sync_axes": false,
+        "metric": "bytes",
+        "matrixBy": [],
+        "cidr": 32,
+        "cidr6": 128,
+        "pps_threshold": 500,
+        "topx": 8,
+        "depth": 100,
+        "fastData": "Auto",
+        "outsort": "max_bits_per_sec",
+        "lookback_seconds": 604800,
+        "time_format": "UTC",
+        "starting_time": null,
+        "ending_time": null,
+        "update_frequency": 0,
+        "device_name": "[insert list of device names]"
+        "all_selected": true,
+        "host_selected": false,
+        "num_device": 139,
+        "filter_string": "((  (  (i_input_snmp_alias ILIKE '%peering:%' )  ) ) )",
+        "filters_obj": {
+          "connector": "All",
+          "custom": false,
+          "filterGroups": [
+            {
+              "connector": "All",
+              "filters": [
+                {
+                  "filterField": "i_input_snmp_alias",
+                  "operator": "ILIKE",
+                  "filterValue": "peering:",
+                  "id": "c2030"
+                }
+              ],
+              "filterString": "(  (  (i_input_snmp_alias ILIKE '%peering:%' )  ) ) ",
+              "metric": null,
+              "not": false,
+              "id": "c2031"
+            }
+          ],
+          "filterString": "((  (  (i_input_snmp_alias ILIKE '%peering:%' )  ) ) )"
+        },
+        "saved_filters": [
+          {
+            "filter_id": 1054,
+            "is_not": true
+          }
+        ],
+        "descriptor": "Total",
+        "isEditing": false,
+        "bucket": "Left +Y Axis",
+        "bucketIndex": 0,
+        "cutFn": {},
+        "query_title": "Top Device, Source AS Number, Source Country, Source Interface by Max Bits/s",
+        "time_type": "relative",
+        "device_id": "10619,10626,10576,10618,10762,10763,10627,10688,10689,10837,10838,10752,10753,10754,10755,10785,10786,10787,10788,11022,11026,10756,10757,10758,10759,10760,10761,10764,10765,10766,10767,10772,10773,10774,10775,10776,10777,10778,10779,10780,10781,10783,10784,10789,10790,10805,10806,10807,10808,10809,10810,10811,10812,10813,10814,10815,10816,10817,10818,10819,10824,10821,10822,10823,10825,10826,10827,10829,10830,10839,10840,10841,10842,10843,10926,10927,10928,10929,10930,10931,10932,10973,10974,10975,10976,10978,10981,10982,10983,10984,10987,10988,10989,10990,10991,10992,10993,10994,10995,10998,10999,11000,11001,11002,11024,11039,11417,11418,11419,11420,11421,11422,11423,11424,11425,11426,11428,11429,11430,11431,11432,11433,11434,11435,11436,11438,11439,11440,11441,11442,11443,11444,11445,11446,11447,11448,11449,11450,11427",
+        "num_selected": 0,
+        "sql_string": "",
+        "queryChanged": false,
+        "granularity": "total",
+        "ppsThreshold": "500",
+        "last_run": null,
+        "aggregates": [
+          {
+            "name": "avg_bits_per_sec",
+            "column": "f_sum_both_bytes",
+            "fn": "average",
+            "properName": "Average",
+            "sortable": true,
+            "sample_rate": 1
+          },
+          {
+            "name": "p95th_bits_per_sec",
+            "column": "f_sum_both_bytes",
+            "fn": "percentile",
+            "rank": 95,
+            "properName": "95th Percentile",
+            "sortable": true,
+            "sample_rate": 1
+          },
+          {
+            "name": "max_bits_per_sec",
+            "column": "f_sum_both_bytes",
+            "fn": "max",
+            "properName": "Max",
+            "sortable": true,
+            "raw": true,
+            "sample_rate": 1
+          }
+        ],
+        "dimension": [
+          "i_device_id",
+          "AS_src",
+          "Geography_src",
+          "InterfaceID_src"
+        ]
+      },
+      "bucket": "Left +Y Axis",
+      "bucketIndex": 0,
+      "isOverlay": false
+    }
+  ]
+}
